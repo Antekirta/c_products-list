@@ -1,8 +1,4 @@
-#include <windows.h>
-#include <stdio.h>
-#include <conio.h>
-#include <math.h>
-#include <string.h>
+#include "print_menu.h"
 
 void print_menu()
 {
@@ -14,14 +10,4 @@ void print_menu()
     printf("6. Save list to file \n");
     printf("7. Load list from file \n");
     printf("8. Quit \n");
-    printf("> ");
-}
-
-int main(int argc, char const *argv[])
-{
-    print_menu();
-
-    system("pause");
-
-    return 0;
 }
