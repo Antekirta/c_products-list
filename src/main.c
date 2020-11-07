@@ -54,7 +54,7 @@ void init () {
             code = create_list();
             switch (code) {
                 case 1: init(); break;
-                case 2:  printf("add_record \n"); break;
+                case 2: add_product(); break;
             }
             break;
         case 2: printf("show_list"); break;
