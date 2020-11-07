@@ -28,17 +28,35 @@ void load_list_from_file();
 
 void quit();
 
+void init ();
+
 int main() {
+    init();
+
+    system("pause");
+
+    return 0;
+}
+
+void init () {
     print_menu();
 
     int menu_choice;
+    /** It's gonna contain the code returned from functions below */
+    int code;
 
     scanf("%d", &menu_choice);
     fflush(stdin);
 
     switch (menu_choice)
     {
-        case 1: create_list(); break;
+        case 1:
+            code = create_list();
+            switch (code) {
+                case 1: init(); break;
+                case 2:  printf("add_record \n"); break;
+            }
+            break;
         case 2: printf("show_list"); break;
         case 3: printf("add_record"); break;
         case 4: printf("update_record"); break;
@@ -47,8 +65,4 @@ int main() {
         case 7: printf("load_list_from_file"); break;
         case 8: printf("quit"); break;
     }
-
-    system("pause");
-
-    return 0;
 }

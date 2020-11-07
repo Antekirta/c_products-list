@@ -23,8 +23,6 @@ int create_list() {
     char should_remove_existing_list;
     int status = 0;
 
-    list_of_products_exists = true;
-
     if (list_of_products_exists == true) {
         printf("Remove the existing list? y/N \n");
 
