@@ -1,3 +1,4 @@
+#include "global-variables.h"
 #include "main.h"
 
 struct Product {
@@ -9,11 +10,9 @@ struct Product {
     * next;
 };
 
-struct Product *list_of_products;
-
-void create_list() {
-
-};
+struct Product *list_of_products[LIST_OF_PRODUCTS_INITIAL_LENGTH] = {};
+unsigned int current_list_of_products_length = 0;
+bool list_of_products_exists = false;
 
 void show_list();
 
@@ -35,10 +34,11 @@ int main() {
     int menu_choice;
 
     scanf("%d", &menu_choice);
+    fflush(stdin);
 
     switch (menu_choice)
     {
-        case 1: printf("create_list"); break;
+        case 1: create_list(); break;
         case 2: printf("show_list"); break;
         case 3: printf("add_record"); break;
         case 4: printf("update_record"); break;
