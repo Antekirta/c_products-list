@@ -1,22 +1,11 @@
 #include "global-variables.h"
 #include "main.h"
 
-struct Product {
-    char name[50];
-    float price;
-    int amount;
-    // meta
-    * prev;
-    * next;
-};
-
 struct Product *list_of_products[LIST_OF_PRODUCTS_INITIAL_LENGTH] = {};
 unsigned int current_list_of_products_length = 0;
 bool list_of_products_exists = false;
 
 void show_list();
-
-void add_record();
 
 void update_record();
 
@@ -39,10 +28,12 @@ int main() {
 }
 
 void init () {
+    system("cls");
+
     print_menu();
 
     int menu_choice;
-    /** It's gonna contain the code returned from functions below */
+    /** It's gonna contain a code returned from functions below */
     int code;
 
     scanf("%d", &menu_choice);
@@ -54,7 +45,14 @@ void init () {
             code = create_list();
             switch (code) {
                 case 1: init(); break;
-                case 2: add_product(); break;
+                case 2:
+                    code = add_product();
+
+                    if (code == 2) {
+                        init();
+                    }
+
+                    break;
             }
             break;
         case 2: printf("show_list"); break;
