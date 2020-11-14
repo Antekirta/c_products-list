@@ -5,8 +5,6 @@ struct Product *list_of_products[LIST_OF_PRODUCTS_INITIAL_LENGTH] = {};
 unsigned int current_list_of_products_length = 0;
 bool list_of_products_exists = false;
 
-void show_list();
-
 void update_record();
 
 void delete_record();
@@ -43,17 +41,9 @@ void init () {
     {
         case 1:
             code = create_list();
-            switch (code) {
-                case 1: init(); break;
-                case 2:
-                    code = add_product();
-
-                    if (code == 2) init();
-
-                    break;
-            }
+            init();
             break;
-        case 2: printf("show_list"); break;
+        case 2: show_list(); break;
         case 3:
             code = add_product();
 

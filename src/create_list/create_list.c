@@ -16,11 +16,11 @@ void null_list_of_products() {
  * @return {int} code
  * code == 0 means that an error occurred
  * code == 1 means that user decided not to create a list
- * code == 2 means that a list may be created
+ * code == 2 means that a list has been successfully created
  */
 int create_list() {
     char should_remove_existing_list;
-    int status = 0;
+    int code = 0;
 
     if (list_of_products_exists == true) {
         printf("Remove the existing list? y/N \n");
@@ -30,17 +30,19 @@ int create_list() {
         if (should_remove_existing_list == 'y') {
             null_list_of_products();
 
-            status = 2;
+            code = 2;
         } else {
             printf("Get back to menu... \n \n");
 
-            status = 1;
+            code = 1;
         }
     } else {
         null_list_of_products();
 
-        status = 2;
+        add_product();
+
+        code = 2;
     }
 
-    return status;
+    return code;
 };

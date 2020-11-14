@@ -36,9 +36,14 @@ int add_product() {
         new_product.prev = &prev_product;
 
         prev_product.next = &new_product;
+    } else {
+        // The fact that the previous item doesn't exist means that we're adding the first product
+        list_of_products_exists = true;
     }
 
     current_list_of_products_length++;
+
+    list_of_products[current_list_of_products_length] = &new_product;
 
     system("cls");
 
