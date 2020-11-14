@@ -48,15 +48,18 @@ void init () {
                 case 2:
                     code = add_product();
 
-                    if (code == 2) {
-                        init();
-                    }
+                    if (code == 2) init();
 
                     break;
             }
             break;
         case 2: printf("show_list"); break;
-        case 3: printf("add_record"); break;
+        case 3:
+            code = add_product();
+
+            if (code == 2) init();
+
+            break;
         case 4: printf("update_record"); break;
         case 5: printf("delete_record"); break;
         case 6: printf("save_list_to_file"); break;
