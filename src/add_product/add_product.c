@@ -3,12 +3,12 @@
 extern Product *list_of_products[LIST_OF_PRODUCTS_INITIAL_LENGTH];
 extern unsigned int current_list_of_products_length;
 extern bool list_of_products_exists;
+struct Product prev_product;
+struct Product new_product;
 
 int add_product() {
     system("cls");
 
-    struct Product prev_product;
-    struct Product new_product;
     bool prev_exists = false;
 
     if (list_of_products_exists == true) {
@@ -19,24 +19,26 @@ int add_product() {
 
     current_list_of_products_length++;
 
-    list_of_products[current_list_of_products_length] = &new_product;
+    new_product = *(struct Product *)malloc(sizeof(struct Product));
+
+//    list_of_products[current_list_of_products_length] = &new_product;
 
     printf("Enter the name of new product: ");
 
-    scanf("%s", &list_of_products[current_list_of_products_length]->name);
+    scanf("%s", &new_product.name);
     fflush(stdin);
 
-    printf("Enter the price of %s: ", list_of_products[current_list_of_products_length]->name);
+    printf("Enter the price of %s: ", new_product.name);
 
-    scanf("%f", &list_of_products[current_list_of_products_length]->price);
+    scanf("%f", &new_product.price);
     fflush(stdin);
 
-    printf("Enter the amount of %s: ", list_of_products[current_list_of_products_length]->name);
-    scanf("%d", &list_of_products[current_list_of_products_length]->amount);
+    printf("Enter the amount of %s: ", new_product.name);
+    scanf("%d", &new_product.amount);
     fflush(stdin);
 
     if (prev_exists == true) {
-        list_of_products[current_list_of_products_length]->prev = &prev_product;
+        new_product.prev = &prev_product;
 
         prev_product.next = &new_product;
     } else {
@@ -44,12 +46,14 @@ int add_product() {
         list_of_products_exists = true;
     }
 
+    list_of_products[current_list_of_products_length] = &new_product;
+
     system("cls");
 
-    printf("Product \"%s\" has been successfully created! \n\n", list_of_products[current_list_of_products_length]->name);
-    printf("Name: %s \n", list_of_products[current_list_of_products_length]->name);
-    printf("Price: %.2f\n", list_of_products[current_list_of_products_length]->price);
-    printf("Amount: %d\n", list_of_products[current_list_of_products_length]->amount);
+    printf("Product \"%s\" has been successfully created! \n\n", new_product.name);
+    printf("Name: %s \n", new_product.name);
+    printf("Price: %.2f\n", new_product.price);
+    printf("Amount: %d\n", new_product.amount);
     printf("\nPress Enter to get back to start menu... \n");
 
     getchar();
