@@ -26,9 +26,12 @@ int create_list() {
         printf("Remove the existing list? y/N \n");
 
         scanf("%c", &should_remove_existing_list);
+        fflush(stdin);
 
         if (should_remove_existing_list == 'y') {
             null_list_of_products();
+
+            add_product();
 
             code = 2;
         } else {

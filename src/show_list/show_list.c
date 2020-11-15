@@ -19,13 +19,13 @@ int show_list() {
     struct Product current_product;
 
     if (list_of_products_exists == true) {
+        printf("      Name     Amount     Price\n\n");
+
         for (i = 1; i <= current_list_of_products_length; i++) {
-            printf("i: %d \n", i);
-//            printf("list_of_products[i].name: %s \n", list_of_products[i]->name);
             current_product = *list_of_products[i];
 
-            printf("      Name     Amount     Price\n\n");
             printf("%10s %10d %10.2f", current_product.name, current_product.amount, current_product.price);
+            printf("\n");
         }
 
         code = 2;
