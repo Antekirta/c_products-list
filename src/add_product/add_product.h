@@ -7,6 +7,6 @@
 
 #define _ADD_PRODUCT_H
 
-int add_product();
+int add_product(ProductsList *list);
 
 #endif

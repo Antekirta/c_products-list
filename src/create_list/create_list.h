@@ -7,6 +7,6 @@
 
 #define _CREATE_LIST_H
 
-int create_list();
+ProductsList* create_list();
 
 #endif

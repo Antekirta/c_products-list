@@ -18,34 +18,12 @@ void null_list_of_products() {
  * code == 1 means that user decided not to create a list
  * code == 2 means that a list has been successfully created
  */
-int create_list() {
-    char should_remove_existing_list;
-    int code = 0;
+ProductsList* create_list() {
+    ProductsList *list = (ProductsList*) malloc(sizeof(ProductsList));
 
-    if (list_of_products_exists == true) {
-        printf("Remove the existing list? y/N \n");
+    list->size = 0;
+    list->head = NULL;
+    list->tail = NULL;
 
-        scanf("%c", &should_remove_existing_list);
-        fflush(stdin);
-
-        if (should_remove_existing_list == 'y') {
-            null_list_of_products();
-
-            add_product();
-
-            code = 2;
-        } else {
-            printf("Get back to menu... \n \n");
-
-            code = 1;
-        }
-    } else {
-        null_list_of_products();
-
-        add_product();
-
-        code = 2;
-    }
-
-    return code;
+    return list;
 };

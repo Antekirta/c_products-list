@@ -4,6 +4,7 @@
 struct Product *list_of_products[LIST_OF_PRODUCTS_INITIAL_LENGTH] = {};
 unsigned int current_list_of_products_length = 0;
 bool list_of_products_exists = false;
+ProductsList *list = NULL;
 
 void update_record();
 
@@ -31,8 +32,6 @@ void init () {
     print_menu();
 
     int menu_choice;
-    /** It's gonna contain a code returned from functions below */
-    int code;
 
     scanf("%d", &menu_choice);
     fflush(stdin);
@@ -40,15 +39,12 @@ void init () {
     switch (menu_choice)
     {
         case 1:
-            code = create_list();
+            list = create_list();
             init();
             break;
-        case 2: show_list(); break;
+        case 2: printf("show list"); break;
         case 3:
-            code = add_product();
-
-            if (code == 2) init();
-
+            add_product(list);
             break;
         case 4: printf("update_record"); break;
         case 5: printf("delete_record"); break;

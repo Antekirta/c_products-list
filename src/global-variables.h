@@ -11,6 +11,14 @@ struct Product {
     struct Product * next;
 };
 
+typedef struct _ProductsList {
+    int size;
+    Product *head;
+    Product *tail;
+} ProductsList;
+
+extern ProductsList *list;
+
 extern struct Product *list_of_products[LIST_OF_PRODUCTS_INITIAL_LENGTH];
 extern unsigned int current_list_of_products_length;
 extern bool list_of_products_exists;
