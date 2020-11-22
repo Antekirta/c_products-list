@@ -7,6 +7,6 @@
 
 #define _SHOW_LIST_H
 
-int show_list();
+int show_list(ProductsList *list);
 
 #endif

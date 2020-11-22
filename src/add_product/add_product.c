@@ -20,15 +20,20 @@ int add_product(ProductsList *list) {
     fflush(stdin);
 
     if (list->head == NULL) {
+        printf("list->head == NULL\n");
         new_product->prev = NULL;
         new_product->next = NULL;
 
         list->head = new_product;
     } else {
+        printf("list->head != NULL\n");
         new_product->prev = list->head;
-        new_product->next = list->head->next;
 
-        list->head->next->prev = new_product;
+        if (list->head->next) {
+            new_product->next = list->head->next;
+            list->head->next->prev = new_product;
+        }
+
         list->head->next = new_product;
     }
 

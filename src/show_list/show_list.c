@@ -1,9 +1,5 @@
 #include "show_list.h"
 
-extern Product *list_of_products[LIST_OF_PRODUCTS_INITIAL_LENGTH];
-extern unsigned int current_list_of_products_length;
-extern bool list_of_products_exists;
-
 /**
  * Show list
  * @return {int} code
@@ -11,33 +7,31 @@ extern bool list_of_products_exists;
  * code == 1 means that there is no list to show
  * code == 2 means that a list has been successfully shown
  */
-int show_list() {
+int show_list(ProductsList *list) {
     system("cls");
 
-    int i;
-    int code = 0;
-    struct Product current_product;
+    struct Product current_product = *list->head;
 
-    if (list_of_products_exists == true) {
-        printf("      Name     Amount     Price\n\n");
+    do {
+        printf("current_product.next: %d \n", &current_product.next);
+        printf("%10s %10d %10.2f", current_product.name, current_product.amount, current_product.price);
+        printf("\n");
 
-        for (i = 1; i <= current_list_of_products_length; i++) {
-            current_product = *list_of_products[i];
+        current_product = *current_product.next;
 
-            printf("%10s %10d %10.2f", current_product.name, current_product.amount, current_product.price);
-            printf("\n");
-        }
+        printf("\nPress Enter to get back to start menu... \n");
+        getchar();
+        fflush(stdin);
+    } while(current_product.next != NULL);
 
-        code = 2;
-    } else {
-        printf("There is no list of products. Create one! \n");
 
-        code = 1;
-    }
 
-    printf("\nPress Enter to get back to start menu... \n");
-    getchar();
-    fflush(stdin);
-
-    return code;
+    return 0;
 }
+
+//printf("%10s %10d %10.2f", current_product.name, current_product.amount, current_product.price);
+//printf("\n");
+
+//printf("\nPress Enter to get back to start menu... \n");
+//getchar();
+//fflush(stdin);

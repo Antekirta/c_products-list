@@ -42,9 +42,13 @@ void init () {
             list = create_list();
             init();
             break;
-        case 2: printf("show list"); break;
+        case 2:
+            show_list(list);
+            init();
+            break;
         case 3:
             add_product(list);
+            init();
             break;
         case 4: printf("update_record"); break;
         case 5: printf("delete_record"); break;
