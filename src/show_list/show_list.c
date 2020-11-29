@@ -11,20 +11,27 @@ int show_list(ProductsList *list) {
     system("cls");
 
     struct Product current_product = *list->head;
+    int i = 0;
 
-    do {
-        printf("current_product.next: %d \n", &current_product.next);
+    printf("      Name    Amount     Price\n");
+
+    while(true) {
         printf("%10s %10d %10.2f", current_product.name, current_product.amount, current_product.price);
         printf("\n");
 
+        i++;
+
+        // FIXME We're better check whether current item is a tail of the list
+        if (i == list->size) {
+            break;
+        }
+
         current_product = *current_product.next;
+    };
 
-        printf("\nPress Enter to get back to start menu... \n");
-        getchar();
-        fflush(stdin);
-    } while(current_product.next != NULL);
-
-
+    printf("\nPress Enter to get back to start menu... \n");
+    getchar();
+    fflush(stdin);
 
     return 0;
 }

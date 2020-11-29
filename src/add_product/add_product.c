@@ -20,13 +20,13 @@ int add_product(ProductsList *list) {
     fflush(stdin);
 
     if (list->head == NULL) {
-        printf("list->head == NULL\n");
         new_product->prev = NULL;
         new_product->next = NULL;
 
+
         list->head = new_product;
+        list->tail = new_product;
     } else {
-        printf("list->head != NULL\n");
         new_product->prev = list->head;
 
         if (list->head->next) {
@@ -37,13 +37,11 @@ int add_product(ProductsList *list) {
         list->head->next = new_product;
     }
 
-//    list->tail = new_product;
-//
-//    list->size++;
-//
-//    printf("head %s \n", list->head->name);
-//    printf("tail %s \n", list->tail->name);
-//    printf("size %d \n", list->size);
+    list->size = list->size + 1;
+
+    if (list->size == 2) {
+        list->tail = new_product;
+    }
 
     return 0;
 };
