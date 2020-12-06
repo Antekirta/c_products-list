@@ -55,6 +55,6 @@ void init () {
         case 5: printf("delete_record"); break;
         case 6: printf("save_list_to_file"); break;
         case 7: printf("load_list_from_file"); break;
-        case 8: printf("quit"); break;
+        case 8: printf("\nBye\n"); break;
     }
 }

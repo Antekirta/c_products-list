@@ -1,9 +1,7 @@
 #include "iterate_list.h"
 
-int iterate_list(ProductsList *list, void (*callback)(Product)) {
-    printf("Iterate list works!");
-
-    struct Product current_product = *list->head;
+int iterate_list(ProductsList *list, void (*callback)(Product*)) {
+    struct Product * current_product = list->head;
     int i = 0;
 
     while(true) {
@@ -19,7 +17,7 @@ int iterate_list(ProductsList *list, void (*callback)(Product)) {
             break;
         }
 
-        current_product = *current_product.next;
+        current_product = current_product->next;
     };
 
     return 0;
