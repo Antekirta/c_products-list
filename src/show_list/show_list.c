@@ -1,5 +1,10 @@
 #include "show_list.h"
 
+void show_list_item(struct Product *current_product) {
+    printf("%10s %10d %10.2f", current_product->name, current_product->amount, current_product->price);
+    printf("\n");
+}
+
 /**
  * Show list
  * @return {int} code
@@ -15,19 +20,7 @@ int show_list(ProductsList *list) {
 
     printf("      Name    Amount     Price\n");
 
-    while(true) {
-        printf("%10s %10d %10.2f", current_product.name, current_product.amount, current_product.price);
-        printf("\n");
-
-        i++;
-
-        // FIXME We're better check whether current item is a tail of the list
-        if (i == list->size) {
-            break;
-        }
-
-        current_product = *current_product.next;
-    };
+    iterate_list(list, show_list_item);
 
     printf("\nPress Enter to get back to start menu... \n");
     getchar();
@@ -35,10 +28,3 @@ int show_list(ProductsList *list) {
 
     return 0;
 }
-
-//printf("%10s %10d %10.2f", current_product.name, current_product.amount, current_product.price);
-//printf("\n");
-
-//printf("\nPress Enter to get back to start menu... \n");
-//getchar();
-//fflush(stdin);

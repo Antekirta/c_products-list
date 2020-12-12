@@ -2,10 +2,6 @@
 
 char name[50];
 
-/**
- * BUG!!! It updates only local copy of product, not the original one by pointer!
- */
-
 void update_list_item(struct Product *current_product) {
     if (strcmp(name, current_product->name) == 0) {
         printf("      Name    Amount     Price\n");
