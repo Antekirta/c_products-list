@@ -1,6 +1,6 @@
 #include "show_list.h"
 
-void show_list_item(struct Product *current_product) {
+void show_list_item(struct Product *current_product, ProductsList *list) {
     printf("%10s %10d %10.2f", current_product->name, current_product->amount, current_product->price);
     printf("\n");
 }

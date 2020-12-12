@@ -13,6 +13,7 @@
 #include "create_list/create_list.h"
 #include "add_product/add_product.h"
 #include "update_product/update_product.h"
+#include "delete_product/delete_product.h"
 #include "show_list//show_list.h"
 
 #endif
