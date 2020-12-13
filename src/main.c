@@ -43,7 +43,7 @@ void init () {
             init();
             break;
         case 3:
-            add_product(list);
+            add_user_input_product(list);
             init();
             break;
         case 4:
