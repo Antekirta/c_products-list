@@ -15,6 +15,7 @@
 #include "update_product/update_product.h"
 #include "delete_product/delete_product.h"
 #include "save_to_file/save_to_file.h"
+#include "load_from_file/load_from_file.h"
 #include "show_list//show_list.h"
 
 #endif
