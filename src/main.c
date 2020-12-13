@@ -6,9 +6,7 @@ unsigned int current_list_of_products_length = 0;
 bool list_of_products_exists = false;
 ProductsList *list = NULL;
 
-//void delete_record();
-
-void save_list_to_file();
+//void save_list_to_file();
 
 void load_list_from_file();
 
@@ -56,7 +54,9 @@ void init () {
             delete_product(list);
             init();
             break;
-        case 6: printf("save_list_to_file"); break;
+        case 6:
+            save_to_file(list);
+            break;
         case 7: printf("load_list_from_file"); break;
         case 8: printf("\nBye\n"); break;
     }

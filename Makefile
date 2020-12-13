@@ -5,6 +5,7 @@ main.o: src/main.c
 	src/add_product/add_product.c \
 	src/update_product/update_product.c \
 	src/delete_product/delete_product.c \
+	src/save_to_file/save_to_file.c \
 	src/show_list/show_list.c \
 	src/utils/iterate_list/iterate_list.c \
 	-o bin/main.exe
