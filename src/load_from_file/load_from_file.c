@@ -49,8 +49,6 @@ int load_from_file() {
         lines_counter++;
     }
 
-    printf(" \n lines_counter: %d \n", lines_counter);
-
     printf("\nPress Enter to get back to start menu... \n");
     getchar();
     fflush(stdin);
