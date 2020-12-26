@@ -15,9 +15,6 @@ void show_list_item(struct Product *current_product, ProductsList *list) {
 int show_list(ProductsList *list) {
     system("cls");
 
-    struct Product current_product = *list->head;
-    int i = 0;
-
     printf("      Name    Amount     Price\n");
 
     iterate_list(list, show_list_item);

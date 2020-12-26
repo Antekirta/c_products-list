@@ -9,8 +9,6 @@ void write_item_to_file(struct Product *current_product, ProductsList *list) {
 int save_to_file(ProductsList *list) {
     p_file = fopen("products.txt", "w");
 
-    fprintf(p_file, "Name  Amount  Price \n");
-
     iterate_list(list, write_item_to_file);
 
     fclose(p_file);

@@ -28,6 +28,26 @@ int add_product(ProductsList *list, Product *new_product) {
     return 0;
 }
 
+int add_product_in_common_order(ProductsList *list, Product *new_product) {
+    if (list->head == NULL) {
+        new_product->prev = NULL;
+        new_product->next = NULL;
+
+        list->head = new_product;
+        list->tail = new_product;
+    } else {
+        list->tail->next = new_product;
+        new_product->prev = list->tail;
+        new_product->next = NULL;
+
+        list->tail = new_product;
+    }
+
+    list->size = list->size + 1;
+
+    return 0;
+}
+
 Product* get_product_from_input() {
     Product *new_product = (Product*) malloc(sizeof(Product));
 
@@ -63,7 +83,7 @@ int add_existing_product(ProductsList *list, Product *new_product) {
 
     printf("\nADD EXISTING PRODUCT!!!\n");
 
-    add_product(list, new_product);
+    add_product_in_common_order(list, new_product);
 
     return 0;
 }
