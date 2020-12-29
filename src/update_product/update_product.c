@@ -2,7 +2,7 @@
 
 char name[50];
 
-void update_list_item(struct Product *current_product, ProductsList *list) {
+void update_list_item(struct Product *current_product, ProductsList *list, int i) {
     if (strcmp(name, current_product->name) == 0) {
         printf("      Name    Amount     Price\n");
 

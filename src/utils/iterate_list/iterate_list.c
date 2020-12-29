@@ -1,11 +1,11 @@
 #include "iterate_list.h"
 
-int iterate_list(ProductsList *list, void (*callback)(Product*, ProductsList *list)) {
+int iterate_list(ProductsList *list, void (*callback)(Product*, ProductsList *list, int i)) {
     struct Product * current_product = list->head;
     int i = 0;
 
     while(true) {
-        callback(current_product, list);
+        callback(current_product, list, i);
 
 //        printf("%10s %10d %10.2f", current_product.name, current_product.amount, current_product.price);
 //        printf("\n");

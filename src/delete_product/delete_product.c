@@ -2,7 +2,7 @@
 
 char name_of_product_to_delete[50];
 
-void delete_list_item(struct Product *current_product, ProductsList *list) {
+void delete_list_item(struct Product *current_product, ProductsList *list, int i) {
     if (strcmp(name_of_product_to_delete, current_product->name) == 0) {
         current_product->prev->next = current_product->next;
         current_product->next->prev = current_product->prev;
