@@ -9,4 +9,5 @@ main.o: src/main.c
 	src/load_from_file/load_from_file.c \
 	src/show_list/show_list.c \
 	src/utils/iterate_list/iterate_list.c \
+	src/utils/wait_for_input/wait_for_input.c \
 	-o bin/main.exe

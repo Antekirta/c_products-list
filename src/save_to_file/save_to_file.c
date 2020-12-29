@@ -19,9 +19,7 @@ int save_to_file(ProductsList *list) {
 
     fclose(p_file);
 
-    printf("\nPress Enter to get back to start menu... \n");
-    getchar();
-    fflush(stdin);
+    wait_for_input("\nPress Enter to get back to start menu... \n");
 
     return 0;
 }
