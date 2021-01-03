@@ -9,6 +9,7 @@ extern bool list_of_products_exists;
  * @return {ProductsList}
  */
 ProductsList* create_list() {
+    // Allocate memory for new list
     ProductsList *list = (ProductsList*) malloc(sizeof(ProductsList));
 
     list->size = 0;
