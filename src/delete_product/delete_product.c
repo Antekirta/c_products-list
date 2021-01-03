@@ -2,7 +2,7 @@
 
 char name_of_product_to_delete[50];
 
-void delete_list_item(struct Product *current_product, ProductsList *list, int i) {
+int delete_list_item(struct Product *current_product, ProductsList *list, int i) {
 //    printf("current_product->next %d \n", current_product->next);
 //    printf("i: %d\n", i);
 //    wait_for_input("pause...");
@@ -23,7 +23,11 @@ void delete_list_item(struct Product *current_product, ProductsList *list, int i
 //        wait_for_input("5");
         // TODO AND DON'T FORGET TO DEALLOCATE MEMORY
 //        realloc(current_product, 0);
+
+        return 1;
     }
+
+    return 0;
 };
 
 /**

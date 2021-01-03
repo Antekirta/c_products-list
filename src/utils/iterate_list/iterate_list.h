@@ -7,6 +7,6 @@
 
 #define _ITERATE_LIST_H
 
-int iterate_list(ProductsList *list, void (*callback)(Product*, ProductsList*, int i));
+int iterate_list(ProductsList *list, int (*callback)(Product*, ProductsList*, int i));
 
 #endif

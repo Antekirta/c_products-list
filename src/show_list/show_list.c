@@ -6,9 +6,10 @@
  * @param {ProductsList} list
  * @param {int} i - current list index
  */
-void show_list_item(struct Product *current_product, ProductsList *list, int i) {
+int show_list_item(struct Product *current_product, ProductsList *list, int i) {
     printf("%10s %10d %10.2f", current_product->name, current_product->amount, current_product->price);
     printf("\n");
+    return 0;
 }
 
 /**

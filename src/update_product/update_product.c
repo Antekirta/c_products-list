@@ -2,7 +2,7 @@
 
 char name[50];
 
-void update_list_item(struct Product *current_product, ProductsList *list, int i) {
+int update_list_item(struct Product *current_product, ProductsList *list, int i) {
     if (strcmp(name, current_product->name) == 0) {
         printf("      Name    Amount     Price\n");
 
@@ -22,7 +22,11 @@ void update_list_item(struct Product *current_product, ProductsList *list, int i
         printf("Enter the amount of %s: ", current_product->name);
         scanf("%d", &current_product->amount);
         fflush(stdin);
+
+        return 1;
     }
+
+    return 0;
 };
 
 int update_product(ProductsList *list) {

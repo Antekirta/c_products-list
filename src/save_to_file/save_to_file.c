@@ -9,7 +9,7 @@ FILE *p_file;
  * @param {ProductsList} list - list of products
  * @param {int} i - current index on the list
  */
-void write_item_to_file(struct Product *current_product, ProductsList *list, int i) {
+int write_item_to_file(struct Product *current_product, ProductsList *list, int i) {
     char format[12] = "%s %d %.2f";
 
     if ((i + 1) < list->size) {
@@ -17,6 +17,8 @@ void write_item_to_file(struct Product *current_product, ProductsList *list, int
     }
 
     fprintf(p_file, format, current_product->name, current_product->amount, current_product->price);
+
+    return 0;
 }
 
 /**
