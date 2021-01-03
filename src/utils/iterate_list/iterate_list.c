@@ -6,15 +6,11 @@ int iterate_list(ProductsList *list, int (*callback)(Product*, ProductsList *lis
     int code = 0;
 
     while(true) {
-        printf("iterate: i %d \n", i);
         code = callback(current_product, list, i);
 
         if (code != 0) {
             return 1;
         }
-
-//        printf("%10s %10d %10.2f", current_product.name, current_product.amount, current_product.price);
-//        printf("\n");
 
         i++;
 

@@ -2,27 +2,38 @@
 
 char name_of_product_to_delete[50];
 
+/**
+ * Delete filtered list item
+ * @param {Product} current_product
+ * @param {ProductsList} list
+ * @param {int} i
+ * @return {int}
+ * 0 - no errors
+ */
 int delete_list_item(struct Product *current_product, ProductsList *list, int i) {
-//    printf("current_product->next %d \n", current_product->next);
-//    printf("i: %d\n", i);
-//    wait_for_input("pause...");
-    printf("i: %d\n", i);
-
     if (strcmp(name_of_product_to_delete, current_product->name) == 0) {
-//        wait_for_input("1");
-        current_product->prev->next = current_product->next;
-//        wait_for_input("2");
+        if (current_product->prev != 0) {
+            current_product->prev->next = current_product->next;
+        }
 
         if (current_product->next != 0) {
-//            wait_for_input("3.0");
             current_product->next->prev = current_product->prev;
-//            wait_for_input("3.1");
         }
-//        wait_for_input("4");
+
+        // If this is a head of the list, reset head
+        if (list->head == current_product) {
+            list->head = list->head->next;
+        }
+
+        // If this is a tail of the list, reset tail
+        if (list->tail == current_product) {
+            list->tail = list->tail->prev;
+        }
+
         list->size--;
-//        wait_for_input("5");
-        // TODO AND DON'T FORGET TO DEALLOCATE MEMORY
-//        realloc(current_product, 0);
+
+        // Free memory, dedicated for a product
+        realloc(current_product, 0);
 
         return 1;
     }
