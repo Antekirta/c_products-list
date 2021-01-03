@@ -6,10 +6,6 @@ unsigned int current_list_of_products_length = 0;
 bool list_of_products_exists = false;
 ProductsList *list = NULL;
 
-//void save_list_to_file();
-
-//void load_list_from_file();
-
 void quit();
 
 void init ();
@@ -56,11 +52,16 @@ void init () {
             break;
         case 6:
             save_to_file(list);
+            init();
             break;
         case 7:
             load_from_file();
             init();
             break;
-        case 8: printf("\nBye\n"); break;
+        case 8:
+            printf("\nBye\n");
+            break;
+        default:
+            printf("There is no such command, use numbers from 1 to 8.");
     }
 }
