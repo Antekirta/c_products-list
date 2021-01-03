@@ -11,6 +11,13 @@ void delete_list_item(struct Product *current_product, ProductsList *list, int i
     }
 };
 
+/**
+ * delete particular product from list
+ * @param {ProductsList} list
+ * @return {int}
+ * 0 - no errors
+ * 1 - there is no such product
+ */
 int delete_product(ProductsList *list) {
     show_list(list);
 
@@ -21,9 +28,7 @@ int delete_product(ProductsList *list) {
 
     iterate_list(list, delete_list_item);
 
-    printf("\nPress Enter to get back to main menu... \n");
-    getchar();
-    fflush(stdin);
+    wait_for_input("\nPress Enter to get back to start menu... \n");
 
     return 0;
 }
