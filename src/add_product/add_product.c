@@ -9,6 +9,11 @@
  */
 int add_product(ProductsList *list, Product *new_product) {
     if (list->head == NULL) {
+        /**
+         * Create for item (head) of the list
+         * It becomes the head and the tail on new list
+         */
+
         new_product->prev = NULL;
         new_product->next = NULL;
 
@@ -16,19 +21,28 @@ int add_product(ProductsList *list, Product *new_product) {
         list->head = new_product;
         list->tail = new_product;
     } else {
+        /**
+         * Insert new item immediately after the head
+         */
+
         new_product->prev = list->head;
 
         if (list->head->next) {
+            // bind new item to the previous item after head
             new_product->next = list->head->next;
+            // bind previous item after head to new item
             list->head->next->prev = new_product;
         }
 
+        // bind head to new item
         list->head->next = new_product;
     }
 
+    // Increase size of the list
     list->size = list->size + 1;
 
     if (list->size == 2) {
+        // New item may become tail only if this is the second item added to the list
         list->tail = new_product;
     }
 
@@ -45,12 +59,21 @@ int add_product(ProductsList *list, Product *new_product) {
  */
 int add_product_in_common_order(ProductsList *list, Product *new_product) {
     if (list->head == NULL) {
+        /**
+         * Create for item (head) of the list
+         * It becomes the head and the tail on new list
+         */
+
         new_product->prev = NULL;
         new_product->next = NULL;
 
         list->head = new_product;
         list->tail = new_product;
     } else {
+        /**
+         * Push new product after the tail of the list
+         */
+
         list->tail->next = new_product;
         new_product->prev = list->tail;
         new_product->next = NULL;
@@ -68,15 +91,14 @@ int add_product_in_common_order(ProductsList *list, Product *new_product) {
  * @return {Product}
  */
 Product* get_product_from_input() {
+    // Allocate memory fo new product
     Product *new_product = (Product*) malloc(sizeof(Product));
 
     printf("Enter the name of new product: ");
-
     scanf("%s", &new_product->name);
     fflush(stdin);
 
     printf("Enter the price of %s: ", new_product->name);
-
     scanf("%f", &new_product->price);
     fflush(stdin);
 
