@@ -31,7 +31,10 @@ void init () {
     switch (menu_choice)
     {
         case 1:
+            system("cls");
             list = create_list();
+            printf("\nNew list of products has been successfully created!\n");
+            wait_for_input("\nPress Enter to get back to start menu... \n");
             init();
             break;
         case 2:
