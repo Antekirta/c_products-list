@@ -1,5 +1,12 @@
 #include "add_product.h"
 
+/**
+ * Add product to the list immediately after head of it
+ * @param {ProductsList} list - list of products
+ * @param {Product} new_product - product to be added
+ * @return {int}
+ * 0 - no errors
+ */
 int add_product(ProductsList *list, Product *new_product) {
     if (list->head == NULL) {
         new_product->prev = NULL;
@@ -28,6 +35,14 @@ int add_product(ProductsList *list, Product *new_product) {
     return 0;
 }
 
+/**
+ * Add a product to the list in common order
+ * @param {ProductsList} list - list of products
+ * @param {Product} new_product - product to be added
+ * @return {int}
+ * 0 - no errors
+ * @remark It's used to restore a list from the file, when we have to keep the same order as in file
+ */
 int add_product_in_common_order(ProductsList *list, Product *new_product) {
     if (list->head == NULL) {
         new_product->prev = NULL;
@@ -48,6 +63,10 @@ int add_product_in_common_order(ProductsList *list, Product *new_product) {
     return 0;
 }
 
+/**
+ * Get product features from user input
+ * @return {Product}
+ */
 Product* get_product_from_input() {
     Product *new_product = (Product*) malloc(sizeof(Product));
 
@@ -68,9 +87,13 @@ Product* get_product_from_input() {
     return new_product;
 }
 
+/**
+ * Initialize product with user input and add it to list
+ * @param {ProductsList} list - list of products
+ * @return {int}
+ * 0 - no errors
+ */
 int add_user_input_product(ProductsList *list) {
-//    system("cls");
-
     Product *new_product = get_product_from_input();
 
     add_product(list, new_product);
@@ -78,11 +101,14 @@ int add_user_input_product(ProductsList *list) {
     return 0;
 };
 
+/**
+ * Add already initialized product to list
+ * @param {ProductsList} list - list of products
+ * @param {Product} new_product - product to be added
+ * @return {int}
+ * 0 - no errors
+ */
 int add_existing_product(ProductsList *list, Product *new_product) {
-//    system("cls");
-
-    printf("\nADD EXISTING PRODUCT!!!\n");
-
     add_product_in_common_order(list, new_product);
 
     return 0;
