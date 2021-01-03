@@ -14,8 +14,7 @@ int iterate_list(ProductsList *list, int (*callback)(Product*, ProductsList *lis
 
         i++;
 
-        // FIXME We're better check whether current item is a tail of the list
-        if (i == list->size) {
+        if (current_product == list->tail) {
             break;
         }
 

@@ -47,6 +47,7 @@ int delete_list_item(struct Product *current_product, ProductsList *list, int i)
  * @return {int}
  * 0 - no errors
  * 1 - there is no such product
+ * 2 - list is empty
  */
 int delete_product(ProductsList *list) {
     show_list(list);
@@ -57,8 +58,6 @@ int delete_product(ProductsList *list) {
     fflush(stdin);
 
     iterate_list(list, delete_list_item);
-
-    wait_for_input("\nPress Enter to get back to start menu... \n");
 
     return 0;
 }

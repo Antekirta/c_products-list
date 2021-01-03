@@ -39,9 +39,5 @@ int update_product(ProductsList *list) {
 
     iterate_list(list, update_list_item);
 
-    printf("\nPress Enter to get back to main menu... \n");
-    getchar();
-    fflush(stdin);
-
     return 0;
 }

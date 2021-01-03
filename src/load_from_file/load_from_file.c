@@ -49,10 +49,6 @@ int load_from_file() {
         lines_counter++;
     }
 
-    printf("\nPress Enter to get back to start menu... \n");
-    getchar();
-    fflush(stdin);
-
     fclose(p_products_file);
 
     return 0;

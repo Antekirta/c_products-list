@@ -29,8 +29,6 @@ int add_product(ProductsList *list, Product *new_product) {
 
         if (list->head->next) {
             // bind new item to the previous item after head
-            printf("add product. list->head->next: %d", list->head->next);
-            wait_for_input("\npause...\n");
             new_product->next = list->head->next;
             // bind previous item after head to new item
             list->head->next->prev = new_product;
