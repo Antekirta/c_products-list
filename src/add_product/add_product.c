@@ -14,9 +14,8 @@ int add_product(ProductsList *list, Product *new_product) {
          * It becomes the head and the tail on new list
          */
 
-        new_product->prev = NULL;
-        new_product->next = NULL;
-
+        new_product->prev = 0;
+        new_product->next = 0;
 
         list->head = new_product;
         list->tail = new_product;
@@ -26,9 +25,12 @@ int add_product(ProductsList *list, Product *new_product) {
          */
 
         new_product->prev = list->head;
+        new_product->next = 0;
 
         if (list->head->next) {
             // bind new item to the previous item after head
+            printf("add product. list->head->next: %d", list->head->next);
+            wait_for_input("\npause...\n");
             new_product->next = list->head->next;
             // bind previous item after head to new item
             list->head->next->prev = new_product;

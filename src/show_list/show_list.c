@@ -25,7 +25,5 @@ int show_list(ProductsList *list) {
 
     iterate_list(list, show_list_item);
 
-    wait_for_input("\nPress Enter to get back to start menu... \n");
-
     return 0;
 }

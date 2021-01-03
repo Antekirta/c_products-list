@@ -39,6 +39,7 @@ void init () {
             break;
         case 2:
             show_list(list);
+            wait_for_input("\nPress Enter to get back to start menu... \n");
             init();
             break;
         case 3:
