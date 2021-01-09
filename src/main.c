@@ -6,8 +6,6 @@ unsigned int current_list_of_products_length = 0;
 bool list_of_products_exists = false;
 ProductsList *list = NULL;
 
-void quit();
-
 void init ();
 
 int main() {

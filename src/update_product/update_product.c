@@ -2,7 +2,18 @@
 
 char name[50];
 
+/**
+ * Callback, invoked on eah iteration of going through the products list
+ * If passed name of product matches the name of the current product, we should update this product
+ * with values, gotten from user input
+ * @param {Product} current_product
+ * @param {ProductsList} list
+ * @param {int} i
+ * @return {int}
+ * 0 - no errors
+ */
 int update_list_item(struct Product *current_product, ProductsList *list, int i) {
+    // compare passed name and the name of current product
     if (strcmp(name, current_product->name) == 0) {
         printf("      Name    Amount     Price\n");
 
@@ -22,13 +33,17 @@ int update_list_item(struct Product *current_product, ProductsList *list, int i)
         printf("Enter the amount of %s: ", current_product->name);
         scanf("%d", &current_product->amount);
         fflush(stdin);
-
-        return 1;
     }
 
     return 0;
 };
 
+/**
+ * Update product by its name
+ * @param {ProductsList} list
+ * @return {int}
+ * 0 - no errors
+ */
 int update_product(ProductsList *list) {
     show_list(list);
 

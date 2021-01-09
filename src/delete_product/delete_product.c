@@ -11,6 +11,7 @@ char name_of_product_to_delete[50];
  * 0 - no errors
  */
 int delete_list_item(struct Product *current_product, ProductsList *list, int i) {
+    // compare passed name and the name of current product
     if (strcmp(name_of_product_to_delete, current_product->name) == 0) {
         if (current_product->prev != 0) {
             current_product->prev->next = current_product->next;
@@ -34,8 +35,6 @@ int delete_list_item(struct Product *current_product, ProductsList *list, int i)
 
         // Free memory, dedicated for a product
         realloc(current_product, 0);
-
-        return 1;
     }
 
     return 0;
