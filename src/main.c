@@ -93,5 +93,7 @@ void init () {
             break;
         default:
             printf("There is no such command, use numbers from 1 to 8.");
+            wait_for_input("\nPress Enter to get back to start menu... \n");
+            init();
     }
 }
