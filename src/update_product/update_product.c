@@ -33,6 +33,8 @@ int update_list_item(struct Product *current_product, ProductsList *list, int i)
         printf("Enter the amount of %s: ", current_product->name);
         scanf("%d", &current_product->amount);
         fflush(stdin);
+
+        return 1;
     }
 
     return 0;
